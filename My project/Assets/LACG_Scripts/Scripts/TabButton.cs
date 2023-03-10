@@ -3,31 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 
-[RequireComponent(typeof(image))]
+[RequireComponent(typeof(Image))]
 public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
     public TabGroup tabGroup;
 
     public Image background;
 
-    public void OnTabEnter(TabButton button)
+
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        tabGroup.OnTabEnter(button);
+        tabGroup.OnTabSelected(this);
     }
 
-
-    public void OnTabExit(TabButton button)
+    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        tabGroup.OnTabExit(button);
+        tabGroup.OnTabEnter(this);
     }
 
-    public void OnTabSelected(TabButton button)
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        tabGroup.OnTabSelected(button); 
+        tabGroup.OnTabExit(this);
     }
-
 
     void Start()
     {

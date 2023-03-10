@@ -24,7 +24,7 @@ public class TabGroup : MonoBehaviour
     {
        ResetTabs();
 
-        buton.bacground.sprite = tabHover;
+        button.background.sprite = tabHover;
     }
 
 
@@ -38,7 +38,7 @@ public class TabGroup : MonoBehaviour
     {
         ResetTabs();
 
-        buton.bacground.sprite = tabActive;
+        button.background.sprite = tabActive;
     }
 
     public void ResetTabs()
