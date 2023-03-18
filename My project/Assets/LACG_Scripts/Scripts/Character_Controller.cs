@@ -7,7 +7,15 @@ public class Character_Controller : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float Speed = 5;
     [SerializeField] private float TurnSpeed = 360;
-    private Vector3 _input;   
+    private Vector3 _input;
+    private Inventory inventory;
+
+
+   private void Awake()
+    {
+
+        inventory = new Inventory();
+    }
 
    
     private void Update()
