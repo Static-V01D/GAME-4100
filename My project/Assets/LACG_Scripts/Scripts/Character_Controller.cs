@@ -15,13 +15,13 @@ public class Character_Controller : MonoBehaviour
 
    private void Awake()
     {
-        inventory = new Inventory();
+        inventory = new Inventory();       
         Inventory.SetInventory(inventory);      
 
        
        // ItemWorld.SpawnItemWorld(new Vector3(-8, 1 ,5), new Item { itemType = Item.ItemType.Sword, amount = 1 });
-       // ItemWorld.SpawnItemWorld(new Vector3(-13, 1 ,5), new Item { itemType = Item.ItemType.Manapotion, amount = 1 });
-      //  ItemWorld.SpawnItemWorld(new Vector3(-10, 1 , 5), new Item { itemType = Item.ItemType.HealthPotion, amount = 1 });
+        //ItemWorld.SpawnItemWorld(new Vector3(-13, 1 ,5), new Item { itemType = Item.ItemType.Manapotion, amount = 1 });
+       // ItemWorld.SpawnItemWorld(new Vector3(-10, 1 , 5), new Item { itemType = Item.ItemType.HealthPotion, amount = 1 });
     }
    
 
@@ -40,7 +40,7 @@ public class Character_Controller : MonoBehaviour
        
         GatherInput();
         Look();
-
+     
     }
 
     private void FixedUpdate()
@@ -64,8 +64,9 @@ public class Character_Controller : MonoBehaviour
     private void Move()
     {
         _rb.MovePosition(transform.position + transform.forward * _input.normalized.magnitude * Speed * Time.deltaTime);
-    }   
-   
+    }
+
+    
 }
 
 public static class Helpers

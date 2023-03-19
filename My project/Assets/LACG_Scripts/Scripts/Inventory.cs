@@ -13,7 +13,7 @@ public class Inventory
     {
         itemList = new List<Item> ();
 
-        AddItem(new Item{ itemType = Item.ItemType.Sword, amount = 1 });
+        AddItem(new Item { itemType = Item.ItemType.Sword, amount = 1});
         AddItem(new Item { itemType = Item.ItemType.HealthPotion, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.Manapotion, amount = 1 });
 
@@ -48,9 +48,42 @@ public class Inventory
 
        
     }
+    public void RemoveItem(Item item) 
+    {
+        if (item.IsStackable())
+        {
+            Item itemInInventory = null;
+            foreach (Item inventoryItem in itemList)
+            {
+                if (inventoryItem.itemType == item.itemType)
+                {
+                    inventoryItem.amount -= item.amount;
+                    itemInInventory = inventoryItem;
+                }
+            }
+            if (itemInInventory != null && itemInInventory.amount <=0)
+            {
 
+                itemList.Remove(itemInInventory);
+            }
+        }
+        else
+        {
+            itemList.Remove(item);
+        }
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+
+
+
+    }
     public List<Item> GetItemList()
     {
         return itemList;
+    }
+
+    private void Update ()
+    {
+        Debug.Log(itemList.Count);
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 }

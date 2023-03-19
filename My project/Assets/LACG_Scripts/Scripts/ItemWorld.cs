@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.U2D;
+using CodeMonkey.Utils;
 
 public class ItemWorld : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class ItemWorld : MonoBehaviour
         ItemWorld itemWorld = transform.GetComponent<ItemWorld>();
         itemWorld.SetItem(item);
 
+        return itemWorld;
+    }
+
+    public static ItemWorld DropItem(Vector3 dropPosition , Item item)
+    {
+        Vector3 RandomDir = UtilsClass.GetRandomDir();
+       ItemWorld itemWorld = SpawnItemWorld(dropPosition + RandomDir * 5f, item);
+        itemWorld.GetComponent<Rigidbody>().AddForce(RandomDir * 5, ForceMode.Impulse);
         return itemWorld;
     }
     private Item item;
