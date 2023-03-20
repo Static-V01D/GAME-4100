@@ -13,11 +13,10 @@ public class Inventory
     {
         itemList = new List<Item> ();
 
-        AddItem(new Item { itemType = Item.ItemType.Sword, amount = 1});
-        AddItem(new Item { itemType = Item.ItemType.HealthPotion, amount = 1 });
-        AddItem(new Item { itemType = Item.ItemType.Manapotion, amount = 1 });
-
-
+       
+        AddItem(new Item { itemType = Item.ItemType.Wood, amount = 1 });
+        AddItem(new Item { itemType = Item.ItemType.Wood, amount = 1 });
+      
         Debug.Log(itemList.Count);
     }
 
@@ -81,9 +80,5 @@ public class Inventory
         return itemList;
     }
 
-    private void Update ()
-    {
-        Debug.Log(itemList.Count);
-        OnItemListChanged?.Invoke(this, EventArgs.Empty);
-    }
+    
 }

@@ -8,6 +8,12 @@ public class Item
 { 
     public enum ItemType
     {
+        None,
+        Wood,
+        Stick,
+        Diamond,
+        Sword_Wood,
+        Sword_Diamond,
         Sword,
         HealthPotion,
         Manapotion,
@@ -18,8 +24,40 @@ public class Item
 
     public ItemType itemType;
     public int amount;
+    private ItemHolder itemHolder;
+
+
+    public void SetItemHolder(ItemHolder itemHolder)
+    {
+        this.itemHolder = itemHolder;
+    }
+
+    public ItemHolder GetItemHolder()
+    {
+        return itemHolder;
+    }
+
+    public void MoveToAnotherItemHolder(ItemHolder newItemHolder)
+    {
+        RemoveFromItemHolder();
+        // Add to new Item Holder
+        newItemHolder.AddItem(this);
+    }
+
+    public void RemoveFromItemHolder()
+    {
+        if (itemHolder != null)
+        {
+            // Remove from current Item Holder
+            itemHolder.RemoveItem(this);
+        }
+    }
 
     public Sprite GetSprite()
+    {
+        return GetSprite(itemType);
+    }
+    public static Sprite GetSprite(ItemType itemType)
     {
         switch (itemType) 
         {
@@ -29,6 +67,8 @@ public class Item
             case ItemType.Manapotion: return ItemAssets.Instance.manaPotionSprite;
             case ItemType.Coin: return ItemAssets.Instance.coinSprite;
             case ItemType.Medkit: return ItemAssets.Instance.medKitSprite;
+            case ItemType.Wood: return ItemAssets.Instance.WoodSprite;
+            case ItemType.Stick: return ItemAssets.Instance.StickSprite;
         }
     }
 
@@ -44,6 +84,8 @@ public class Item
                
             case ItemType.Medkit:
             case ItemType.Sword:
+            case ItemType.Wood:
+            case ItemType.Stick:
                 return false;
         }
     }
