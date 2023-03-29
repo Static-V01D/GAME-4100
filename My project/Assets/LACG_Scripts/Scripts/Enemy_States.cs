@@ -31,21 +31,20 @@ public class Enemy_States : MonoBehaviour
     {
 
         player = GameObject.Find("Player").transform;
-        agent = GetComponent<NavMeshAgent>();     
-
-    }
+        agent = GetComponent<NavMeshAgent>();
+    }   
 
     private void Update()
-    {
+    { 
+
+
         //Check for range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, WhatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, WhatIsPlayer);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) AttackPlayer();
-
-
+        if (playerInSightRange && playerInAttackRange) AttackPlayer();        
 
     }
     private void Patroling()
