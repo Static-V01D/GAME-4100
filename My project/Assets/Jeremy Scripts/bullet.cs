@@ -11,7 +11,7 @@ public class bullet : MonoBehaviour
         if(other.CompareTag("Player") && other.GetComponent<HealthBar>()) // verifica si esta colisionando con jugador 
         {
             other.GetComponent<HealthBar>().TakeDamage(damageTaken); // Envia la cantidad de daño a HealthBar.cs
-            Debug.Log("Moriste"); //Sale mensaje en caso de recibir daño y colisionar XD
+            Debug.Log("Moriste"); //Sale mensaje en caso de recibir daño y colisionar
         }
     }
 }
