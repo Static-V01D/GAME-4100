@@ -13,18 +13,6 @@ public class Enemy_States : MonoBehaviour
 
     public float Health;
 
-
-
-    //Walking towards the center of the base AI///
-
-    private GameObject[] goalLocations;
-    private Animator anim;
-    float speedMultiplier;
-    private float detectionRadius = 200f;
-    private float fleeRadius = 10f;
-    ////////////////////////////////////////////////////
-
-
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -44,71 +32,19 @@ public class Enemy_States : MonoBehaviour
 
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-
-
-        ///////////////////
-        ///
-        agent = GetComponent<NavMeshAgent>();
-        //  anim = GetComponent<Animator>();
-        goalLocations = GameObject.FindGameObjectsWithTag("Goal");
-        int i = Random.Range(0, goalLocations.Length);
-        agent.SetDestination(goalLocations[i].transform.position);
-        // anim.SetTrigger("isWalking");
-        // anim.SetFloat("Offset", Random.Range(0f, 1f));
-        ResetAgent();
-
-        ////////////////////////////
-    }
-   
-    private void ResetAgent()
-    {
-        float speedMultiplier = Random.Range(0.3f, 1.2f);
-        //  anim.SetFloat("Speed", speedMultiplier);
-        agent.speed *= speedMultiplier;
-        //  anim.SetTrigger("isWalking");
-        agent.angularSpeed = 120f;
-        agent.ResetPath();
-    }
-
-    public void DetectNewObstacle(Vector3 position)
-    {
-        if (Vector3.Distance(position, this.transform.position) < detectionRadius)
-        {
-            Vector3 fleeDirection = (this.transform.position - position).normalized;
-            Vector3 newGoal = this.transform.position + fleeDirection * fleeRadius;
-
-            NavMeshPath path = new NavMeshPath();
-            agent.CalculatePath(newGoal, path);
-
-            if (path.status != NavMeshPathStatus.PathInvalid)
-            {
-                agent.SetDestination(path.corners[path.corners.Length - 1]);
-                anim.SetTrigger("isRunning");
-                agent.speed = 5f;
-                agent.angularSpeed = 500f;
-            }
-        }
-    }
+    }   
 
     private void Update()
-    {     
+    { 
 
-        if (agent.remainingDistance < 1)
-        {
-            ResetAgent();
-            int i = Random.Range(0, goalLocations.Length);
-            agent.SetDestination(goalLocations[i].transform.position);
-        }
 
         //Check for range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, WhatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, WhatIsPlayer);
 
-       // if (!playerInSightRange && !playerInAttackRange) Patroling();
+        if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) AttackPlayer(); 
-
-       
+        if (playerInSightRange && playerInAttackRange) AttackPlayer();        
 
     }
     private void Patroling()
