@@ -106,6 +106,7 @@ public class Enemy_States : MonoBehaviour
         alreadyAttacked= false;
     }    
 
+    //Vida del enemigo
     private void TakeDamage(int damage)
     {
         Health -= damage;
@@ -120,6 +121,7 @@ public class Enemy_States : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //Funcion de los GIZMOS visibles
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

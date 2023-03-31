@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class bullet : MonoBehaviour
-{
+{/*
     public float damageTaken; // Se puede ajustar
 
     private void OnTriggerEnter(Collider other) //verificar este collider
@@ -14,6 +14,7 @@ public class bullet : MonoBehaviour
             Debug.Log("Moriste"); //Sale mensaje en caso de recibir daño y colisionar XD
         }
     }
+    */
 }
 
 /* Ok detalles importantes primero, si se cambia el OnTriggerEnter no funciona, debe ser a causa de que quizas no estoy programando el collider correctamente, verificar eso. 
