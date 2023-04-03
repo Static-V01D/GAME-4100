@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UI_CraftingItemSlot : MonoBehaviour, IDropHandler {
-    
+public class UI_CraftingItemSlot : MonoBehaviour, IDropHandler 
+{    
     public event EventHandler<OnItemDroppedEventArgs> OnItemDropped;
     public class OnItemDroppedEventArgs : EventArgs {
         public Item item;
