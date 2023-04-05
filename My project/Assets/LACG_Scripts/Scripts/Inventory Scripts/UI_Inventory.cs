@@ -45,7 +45,7 @@ public class UI_Inventory : MonoBehaviour {
 
         int x = 0;
         int y = 0;
-        float itemSlotCellSize = 54f;
+        float itemSlotCellSize = 120f;
         foreach (Item item in inventory.GetItemList())
         {
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
@@ -56,7 +56,7 @@ public class UI_Inventory : MonoBehaviour {
             image.sprite = item.GetSprite();
 
             x++;
-            int itemRowMax = 7;
+            int itemRowMax = 3;
             if (x >= itemRowMax)
             {
                 x = 0;
