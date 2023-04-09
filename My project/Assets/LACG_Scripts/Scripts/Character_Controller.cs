@@ -7,11 +7,23 @@ public class Character_Controller : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float Speed = 5;
     [SerializeField] private float TurnSpeed = 360;
-   
+    [SerializeField] private UI_Inventory Inventory;
 
     private Vector3 _input;
+    private Inventory inventory;
 
- /*
+
+   private void Awake()
+    {
+        inventory = new Inventory();
+        Inventory.SetInventory(inventory);
+
+
+        // ItemWorld.SpawnItemWorld(new Vector3(-8, 1 ,5), new Item { itemType = Item.ItemType.Sword, amount = 1 });
+        //ItemWorld.SpawnItemWorld(new Vector3(-13, 1 ,5), new Item { itemType = Item.ItemType.Manapotion, amount = 1 });
+        // ItemWorld.SpawnItemWorld(new Vector3(-10, 1 , 5), new Item { itemType = Item.ItemType.HealthPotion, amount = 1 });
+    }
+   
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -22,8 +34,7 @@ public class Character_Controller : MonoBehaviour
             inventory.AddItem(itemWorld.GetItem());
             itemWorld.DestroySelf();
         }
-    }*/
-
+    }
     private void Update()
     {
        
