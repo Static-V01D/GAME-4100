@@ -1033,6 +1033,7 @@ GameObject:
   - component: {fileID: 3893294197879345259}
   - component: {fileID: 6982812146204527121}
   - component: {fileID: 2275122828021196288}
+  - component: {fileID: 7125336253511905295}
   - component: {fileID: 4416926081852918491}
   - component: {fileID: 4416926081852918490}
   - component: {fileID: 5885216827943657505}
@@ -1098,7 +1099,18 @@ MonoBehaviour:
   _rb: {fileID: 0}
   Speed: 5
   TurnSpeed: 360
-  Inventory: {fileID: 0}
+--- !u!114 &7125336253511905295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926081852918481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b9a8896ee0950499896fb749f4f460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &4416926081852918491
 CharacterController:
   m_ObjectHideFlags: 0
