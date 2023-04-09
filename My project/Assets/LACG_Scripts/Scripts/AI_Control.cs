@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class AI_Control : MonoBehaviour
 {
+
+    /// <summary>
+    /// / Se encarga de haer que los Zombies vayan al objeto que tenga el Tag de "Goal" y hace que corran del Tag "Obstacle"
+    /// </summary>
     private GameObject[] goalLocations;
     private NavMeshAgent agent;
     private Animator anim;
