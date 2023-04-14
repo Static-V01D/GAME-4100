@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public float health = 100;  // La cantidad actual de salud del personaje
+    public float health = 50;  // La cantidad actual de salud del personaje
     public float maxHealth = 100;   // La cantidad máxima de salud del personaje
 
     [Header("Interface")]
@@ -30,10 +30,7 @@ public class HealthBar : MonoBehaviour
 
     private void Die()
     {
-        if(health<=0)
-        {
-            Debug.Log("Moriste");
-        }
+        Debug.Log("Moriste");
     }
 
 }
