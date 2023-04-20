@@ -9,20 +9,7 @@ public class Character_Controller : MonoBehaviour
     [SerializeField] private float TurnSpeed = 360;
    
 
-    private Vector3 _input;
-
- /*
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
-        if (itemWorld != null)
-        {
-            //Touching item
-            inventory.AddItem(itemWorld.GetItem());
-            itemWorld.DestroySelf();
-        }
-    }*/
+    private Vector3 _input; 
 
     private void Update()
     {
