@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5815280524484053134}
   - component: {fileID: 5516101834975173375}
   - component: {fileID: 4783193205422484186}
-  - component: {fileID: 4446115273912118697}
+  - component: {fileID: -7572379628181087811}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4446115273912118697
+--- !u!114 &-7572379628181087811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
