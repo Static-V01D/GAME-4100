@@ -107,7 +107,7 @@ public class Enemy_States : MonoBehaviour
     }    
 
     //Vida del enemigo
-   public  void TakeDamage(int damage)
+    private void TakeDamage(int damage)
     {
         Health -= damage;
 
@@ -116,9 +116,8 @@ public class Enemy_States : MonoBehaviour
         
     }
 
-     void DestroyEnemy()
+    private void DestroyEnemy()
     {
-        Debug.Log("Enemy died!!!");
         Destroy(gameObject);
     }
 
