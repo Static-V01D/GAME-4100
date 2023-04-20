@@ -1032,8 +1032,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3893294197879345259}
   - component: {fileID: 6982812146204527121}
+  - component: {fileID: 643830176686552940}
   - component: {fileID: 7874502301616858602}
-  - component: {fileID: 2275122828021196288}
   - component: {fileID: 7125336253511905295}
   - component: {fileID: 4416926081852918491}
   - component: {fileID: 4416926081852918490}
@@ -1085,6 +1085,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &643830176686552940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926081852918481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0852268b4618af848a38398dff4350b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  maxHealth: 100
+  HealthImg: {fileID: 0}
+  HealthText: {fileID: 0}
 --- !u!114 &7874502301616858602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,27 +1113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050f822b3bda1d64d8a319ae3c1e243d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   attackPoint: {fileID: 0}
   attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &2275122828021196288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4416926081852918481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89374cb8922d2b74c8ce276de8048224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 0}
-  Speed: 5
-  TurnSpeed: 360
+  attackDamage: 40
 --- !u!114 &7125336253511905295
 MonoBehaviour:
   m_ObjectHideFlags: 0

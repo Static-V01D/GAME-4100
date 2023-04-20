@@ -9,7 +9,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
-    public int attackDamage = 40;
+    public int attackDamage = 400;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))

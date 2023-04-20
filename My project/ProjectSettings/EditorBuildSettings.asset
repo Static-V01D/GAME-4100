@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Jeremy Scripts/Scenes/GameMenu.unity
     guid: 3d2da8200f10df84a94147c106c5893a
   - enabled: 1
-    path: Assets/LACG_Scripts/Prefabs/Char_CONT.unity
+    path: Assets/LACG_Scripts/Scenes/Char_CONT.unity
     guid: 2c13632034705e640a3fc3d431237b8b
+  - enabled: 1
+    path: Assets/LACG_Scripts/Scenes/DeathMenu.unity
+    guid: 784db32b647b89b498bb8e5af26b2a32
+  - enabled: 1
+    path: Assets/LACG_Scripts/Scenes/LevelSelect.unity
+    guid: 5e46624084adfb741b760ce74cc6b68d
   m_configObjects: {}
