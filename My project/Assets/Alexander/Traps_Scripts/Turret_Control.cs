@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Turret_Control : MonoBehaviour
 {
-    Transform agent;
+    Transform Enemy;
     float distance;
     public float MaxDistance;
     public Transform head, barrel;
@@ -18,24 +18,24 @@ public class Turret_Control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        agent = GameObject.FindGameObjectWithTag("Agent").transform;
+        Enemy = GameObject.FindGameObjectWithTag("Enemy").transform;
         InvokeRepeating("updateTarget", 0f, 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (agent == null)
+        if (Enemy == null)
             return;
-        distance = Vector3.Distance(agent.position, transform.position);
+        distance = Vector3.Distance(Enemy.position, transform.position);
         //Vector3 targetPostition = new Vector3(agent.position.x, this.transform.position.y, agent.position.z);
         
-        distance = Vector3.Distance(agent.position, transform.position);
+        distance = Vector3.Distance(Enemy.position, transform.position);
         if (distance <= MaxDistance)
         {
             //transform.Rotate(Vector3.right * RotateAmount);
             //this.transform.LookAt(agent);
-            head.LookAt(agent);
+            head.LookAt(Enemy);
             if (Time.time >= nextFire)
             {
                 nextFire = Time.time + 2f / fireRate;
@@ -47,7 +47,7 @@ public class Turret_Control : MonoBehaviour
     void updateTarget() 
     {
         
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Agent");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
         foreach (GameObject enemy in enemies)
@@ -61,11 +61,11 @@ public class Turret_Control : MonoBehaviour
         }
         if(nearestEnemy !=null && shortestDistance <= MaxDistance) 
         {
-            agent = nearestEnemy.transform;
+            Enemy = nearestEnemy.transform;
         }
         else 
         {
-            agent = null;
+            Enemy = null;
         }
     }
 
@@ -95,7 +95,7 @@ public class Turret_Control : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Agent")
+        if (other.tag == "Enemy")
         {
             GameObject clone = Instantiate(Proyectile, barrel.position, head.rotation);
             clone.GetComponent<Rigidbody>().AddForce(head.forward * BulletSpeed);
