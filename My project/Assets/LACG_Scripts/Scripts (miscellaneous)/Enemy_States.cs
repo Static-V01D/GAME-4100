@@ -23,6 +23,10 @@ public class Enemy_States : MonoBehaviour
     bool alreadyAttacked;
     public GameObject bullet;
 
+    public Transform EnemyAttackPoint;   
+    public LayerMask PlayerLayers;
+    public int attackDamage = 400;
+
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -87,6 +91,7 @@ public class Enemy_States : MonoBehaviour
 
         if(!alreadyAttacked)
         {
+            /*
             //attack code here///////////////////////////////////////////////////
             // rb.AddForce(transform.forward * 32, ForceMode.Impulse) for Big enemies so the push the player away!!
 
@@ -95,7 +100,20 @@ public class Enemy_States : MonoBehaviour
             rb.AddForce(transform.forward * 16, ForceMode.Impulse);
 
            // rb.AddForce(transform.up * 8, ForceMode.Impulse);
-            /////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////// */
+            ///
+
+            Collider[] hitenemies = Physics.OverlapSphere(EnemyAttackPoint.position, attackRange, PlayerLayers);
+
+
+
+            //Damage them
+
+            foreach (Collider enemy in hitenemies)
+            {
+                enemy.GetComponent<Playerhealth>().TakeDamage(50);
+            }
+
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
