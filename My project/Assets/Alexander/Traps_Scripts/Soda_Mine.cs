@@ -8,11 +8,30 @@ public class Soda_Mine : MonoBehaviour
     //[SerializeField] int maxDamage = 100;
 
     private GameObject Soda_mine;
-    public bool MineRotate = false;
+    private float radius = 5f;
+    public float force = 700f;
+    float countdown;
+    public float delay = 2.5f;
+    bool hasExploded = false;
+    
+
     void Start()
     {
-        
+        countdown = delay;
+
     }
+    void LateUpdate()
+    {
+        countdown -= Time.deltaTime;
+        if (countdown <= 0f && !hasExploded)
+        {
+            Explode();
+            hasExploded = true;
+        }
+
+    }
+    
+   
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -20,26 +39,37 @@ public class Soda_Mine : MonoBehaviour
         //Verifies if the object has the game component if it hasit it will activate
         if (collision.gameObject.TryGetComponent<Enemy_States>(out Enemy_States enemyComponent))
         {
-            //enemyComponent.TakeDamage(50);
+            //enemyComponent.TakeDamage();
         }
     }
 
-    // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
-        
-        
-        //anything with the enemy tag the mine will activate
+       
+       
+
         if (other.tag == "Agent")
         {
-            //transform.Rotate(-90f, 0f, 0f, Space.Self);
-            transform.localEulerAngles = new Vector3(90f, 0f, 0f);
-
             //Finds the object
             Soda_mine = GameObject.Find("Soda_Mine");
-            //destroys the object so thath the object is gone
-            Destroy(Soda_mine,3);
-           
+            transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+
         }
+
+    }
+
+    void Explode() 
+    {
+       Collider[] coliders = Physics.OverlapSphere(transform.position, radius);
+        foreach (Collider nearbyObject in coliders) 
+        {
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            if(rb != null) 
+            {
+                rb.AddExplosionForce(force, transform.position, radius);
+            }
+        }
+        //destroys the object so thath the object is gone
+        Destroy(Soda_mine,1);
     }
 }
