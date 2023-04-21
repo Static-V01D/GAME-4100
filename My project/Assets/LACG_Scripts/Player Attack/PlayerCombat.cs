@@ -10,12 +10,16 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public int attackDamage = 400;
+    public GameObject Attacktrail;
+    public float DelayTimer = 3;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Attack();
-        }
+            //Timer
+        }       
     }
 
     private void Attack()
@@ -23,11 +27,11 @@ public class PlayerCombat : MonoBehaviour
         //Play Attack animation
 
         ////////// animator.SetTrigger("Attack");\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
+        Attacktrail.SetActive(true);
 
         //Dettect enemies in range
 
-       Collider[] hitenemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
+        Collider[] hitenemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
 
 
@@ -39,7 +43,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         if (attackPoint == null)
             return;

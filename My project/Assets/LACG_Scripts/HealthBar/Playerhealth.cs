@@ -22,7 +22,7 @@ public class Playerhealth : MonoBehaviour
         healthBar.ChangeCurrentHealth(health);
         if (health < 0)
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene("DeathMenu");
         }
     }
     public void healing(float Heal)

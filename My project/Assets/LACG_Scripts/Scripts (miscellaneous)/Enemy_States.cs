@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class Enemy_States : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class Enemy_States : MonoBehaviour
 
         player = GameObject.Find("PlayerArmature").transform;  // Tests are being made so it is called PlayerArmature to use that model//
         agent = GetComponent<NavMeshAgent>();
-    }   
+    }
 
     private void Update()
     { 
@@ -111,7 +112,7 @@ public class Enemy_States : MonoBehaviour
 
             foreach (Collider enemy in hitenemies)
             {
-                enemy.GetComponent<Playerhealth>().TakeDamage(50);
+                enemy.GetComponent<Playerhealth>().TakeDamage(5);
             }
 
             alreadyAttacked = true;
@@ -139,9 +140,7 @@ public class Enemy_States : MonoBehaviour
         Debug.Log("Enemy died!!!");
         Destroy(gameObject);
     }
-
-    //Funcion de los GIZMOS visibles
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
