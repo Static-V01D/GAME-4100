@@ -137,7 +137,7 @@ public class Enemy_States : MonoBehaviour
 
      void DestroyEnemy()
     {
-        Debug.Log("Enemy died!!!");
+        //Debug.Log("Enemy died!!!");
         Destroy(gameObject);
     }
     private void OnDrawGizmos()
