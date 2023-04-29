@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class Enemy_States : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class Enemy_States : MonoBehaviour
     bool alreadyAttacked;
     public GameObject bullet;
 
+    public Transform EnemyAttackPoint;   
+    public LayerMask PlayerLayers;
+    public int attackDamage = 400;
+
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -32,7 +37,7 @@ public class Enemy_States : MonoBehaviour
 
         player = GameObject.Find("PlayerArmature").transform;  // Tests are being made so it is called PlayerArmature to use that model//
         agent = GetComponent<NavMeshAgent>();
-    }   
+    }
 
     private void Update()
     { 
@@ -87,6 +92,7 @@ public class Enemy_States : MonoBehaviour
 
         if(!alreadyAttacked)
         {
+            /*
             //attack code here///////////////////////////////////////////////////
             // rb.AddForce(transform.forward * 32, ForceMode.Impulse) for Big enemies so the push the player away!!
 
@@ -95,7 +101,20 @@ public class Enemy_States : MonoBehaviour
             rb.AddForce(transform.forward * 16, ForceMode.Impulse);
 
            // rb.AddForce(transform.up * 8, ForceMode.Impulse);
-            /////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////// */
+            ///
+
+            Collider[] hitenemies = Physics.OverlapSphere(EnemyAttackPoint.position, attackRange, PlayerLayers);
+
+
+
+            //Damage them
+
+            foreach (Collider enemy in hitenemies)
+            {
+                enemy.GetComponent<Playerhealth>().TakeDamage(5);
+            }
+
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -107,7 +126,7 @@ public class Enemy_States : MonoBehaviour
     }    
 
     //Vida del enemigo
-    private void TakeDamage(int damage)
+   public  void TakeDamage(int damage)
     {
         Health -= damage;
 
@@ -116,13 +135,12 @@ public class Enemy_States : MonoBehaviour
         
     }
 
-    private void DestroyEnemy()
+     void DestroyEnemy()
     {
+        //Debug.Log("Enemy died!!!");
         Destroy(gameObject);
     }
-
-    //Funcion de los GIZMOS visibles
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
