@@ -8,7 +8,7 @@ public class Soda_Mine : MonoBehaviour
     //[SerializeField] int maxDamage = 100;
 
     private GameObject Soda_mine;
-    private float radius = 5f;
+    private float radius = 20f;
     public float force = 700f;
     float countdown;
     public float delay = 2.5f;
@@ -20,56 +20,60 @@ public class Soda_Mine : MonoBehaviour
         countdown = delay;
 
     }
-    void LateUpdate()
+    void Update()
     {
-        countdown -= Time.deltaTime;
-        if (countdown <= 0f && !hasExploded)
-        {
-            Explode();
-            hasExploded = true;
-        }
+        
+
 
     }
-    
-   
 
-    private void OnCollisionEnter(Collision collision)
-    {
-       
-        //Verifies if the object has the game component if it hasit it will activate
-        if (collision.gameObject.TryGetComponent<Enemy_States>(out Enemy_States enemyComponent))
-        {
-            //enemyComponent.TakeDamage();
-        }
-    }
+
+    //void Explode()
+    //{
+    //    Collider[] coliders = Physics.OverlapSphere(transform.position, radius);
+    //    foreach (Collider nearbyObject in coliders)
+    //    {
+    //        Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+    //        if (rb != null)
+    //        {
+    //            rb.AddExplosionForce(force, transform.position, radius);
+    //        }
+    //    }
+    //    //destroys the object so thath the object is gone
+    //    Destroy(Soda_mine, 1);
+
+    //
+    //}
 
     void OnTriggerEnter(Collider other)
     {
-       
-       
 
         if (other.tag == "Agent")
         {
-            //Finds the object
-            Soda_mine = GameObject.Find("Soda_Mine");
             transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+            countdown -= Time.deltaTime;
+           // if (countdown == 0f)     
+           // {
+                Collider[] coliders = Physics.OverlapSphere(transform.position, radius);
+                foreach (Collider nearbyObject in coliders)
+                {
+                    Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+
+                    rb.AddExplosionForce(force, transform.position, radius);
+                    Soda_mine = GameObject.Find("Soda_Mine");
+                    Destroy(Soda_mine, 1);
+                }
+            //}
+            
+            //destroys the object so thath the object is gone
+
+            //Finds the object
+           
+
 
         }
 
     }
 
-    void Explode() 
-    {
-       Collider[] coliders = Physics.OverlapSphere(transform.position, radius);
-        foreach (Collider nearbyObject in coliders) 
-        {
-            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-            if(rb != null) 
-            {
-                rb.AddExplosionForce(force, transform.position, radius);
-            }
-        }
-        //destroys the object so thath the object is gone
-        Destroy(Soda_mine,1);
-    }
+   
 }
