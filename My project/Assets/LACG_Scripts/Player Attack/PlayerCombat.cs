@@ -40,7 +40,8 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider enemy in hitenemies)
         {
             enemy.GetComponent<Enemy_States>().TakeDamage(attackDamage);
-        }
+
+        }       
     }
 
     private void OnDrawGizmos()

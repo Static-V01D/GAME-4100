@@ -138,6 +138,7 @@ public class Enemy_States : MonoBehaviour
      void DestroyEnemy()
     {
         //Debug.Log("Enemy died!!!");
+        GetComponent<LootBag>().InstantiateLoot(transform.position);
         Destroy(gameObject);
     }
     private void OnDrawGizmos()
