@@ -8,6 +8,7 @@ TagManager:
   - Goal
   - Agent
   - Damage Coin
+  - Enemy
   layers:
   - Default
   - TransparentFX
