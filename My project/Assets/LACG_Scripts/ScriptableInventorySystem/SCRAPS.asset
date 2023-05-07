@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7efcbc8ee4297247a2e7cb659abc275, type: 3}
-  m_Name: ScrapData
+  m_Name: SCRAPS
   m_EditorClassIdentifier: 
-  displayName: SCRAPS
-  icon: {fileID: 21300000, guid: c7aa62ae78ffca0498c89e5f45f94c0e, type: 3}
+  displayName: Scraps
+  icon: {fileID: 21300000, guid: 24d0a41edb635cf41a4a51a00db5fae7, type: 3}

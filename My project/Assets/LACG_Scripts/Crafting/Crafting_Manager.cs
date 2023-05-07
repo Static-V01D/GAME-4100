@@ -10,7 +10,7 @@ public class Crafting_Manager : MonoBehaviour
 
     public Slot[] craftingSlots;
 
-    public List<Crafting_Item> itemList;
+    public List<Crafting_Item> itemList;  
     public string[] recipes;
     public Crafting_Item[] recipesResults;
     public Slot resultSlot;
