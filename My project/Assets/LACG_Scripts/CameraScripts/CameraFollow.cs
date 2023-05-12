@@ -34,4 +34,9 @@ public class CameraFollow : MonoBehaviour
             transform.LookAt(TargetObject);
         }
     }
+
+    private void Update()
+    {
+        LateUpdate();
+    }
 }
