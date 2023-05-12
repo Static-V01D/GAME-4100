@@ -3,7 +3,32 @@ guid: ee35a64c52f1ab14c9178e4e90f20b62
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Blade_Bake_Diff
+    second: {fileID: 2800000, guid: 2af9cbeae2aaf38489159058b84006a3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_BrushedStainlessSteel_512_metallic
+    second: {fileID: 2800000, guid: f582c373cbee91a4aaf1a18794a6fc0d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wodden_Pole_Bake_Diff
+    second: {fileID: 2800000, guid: 3a2a02ec8709fa24e8f22b0a87379b8f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wodden_Pole_Bake_Normal
+    second: {fileID: 2800000, guid: 30df1159ebc25a74ba8eb6f2bd445d42, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wodden_Pole_Bake_Rough
+    second: {fileID: 2800000, guid: 7ab29d21e2abbe64da69a561b0f8917b, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
