@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/LACG_Scripts/Scenes/Intro.unity
+    guid: 6dcf092cfda58ca4991782dcb0f133f5
+  - enabled: 1
     path: Assets/Jeremy Scripts/Scenes/GameMenu.unity
     guid: 3d2da8200f10df84a94147c106c5893a
   - enabled: 1
@@ -14,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LACG_Scripts/Scenes/DeathMenu.unity
     guid: 784db32b647b89b498bb8e5af26b2a32
+  - enabled: 1
+    path: Assets/LACG_Scripts/Scenes/Winner.unity
+    guid: 53192b77a03001d4481b80795bb48bd7
   - enabled: 1
     path: Assets/LACG_Scripts/Scenes/LevelSelect.unity
     guid: 5e46624084adfb741b760ce74cc6b68d
