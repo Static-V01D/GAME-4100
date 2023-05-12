@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
         else if (timeToDisplay <= 1)
         {
 
-            SceneManager.LoadScene("LevelSelect");
+            SceneManager.LoadScene("Winner");
         }
         // timeToDisplay -= 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
