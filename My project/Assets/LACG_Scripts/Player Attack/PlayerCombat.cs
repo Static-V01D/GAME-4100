@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-  // public Animator animator;
+   public Animator animator;
 
     public Transform attackPoint;
     public float attackRange = 0.5f;
@@ -18,15 +18,17 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Attack();
+           
             //Timer
-        }       
+        }
+       
     }
 
     private void Attack()
     {
         //Play Attack animation
 
-        ////////// animator.SetTrigger("Attack");\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        animator.SetTrigger("Attack");  
         Attacktrail.SetActive(true);
 
         //Dettect enemies in range
@@ -41,8 +43,11 @@ public class PlayerCombat : MonoBehaviour
         {
             enemy.GetComponent<Enemy_States>().TakeDamage(attackDamage);
 
-        }       
+        }
+        
     }
+
+  
 
     private void OnDrawGizmos()
     {

@@ -16,7 +16,7 @@ MonoBehaviour:
   - <Name>k__BackingField: Pole
     <ID>k__BackingField: 0
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 4178190907945465280, guid: 08664bc105ae17645becef7445f0e4df, type: 3}
+    <Prefab>k__BackingField: {fileID: 2761519545439696980, guid: 7d728f00ddd656840929e927c979420e, type: 3}
   - <Name>k__BackingField: Turret
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 2, y: 2}

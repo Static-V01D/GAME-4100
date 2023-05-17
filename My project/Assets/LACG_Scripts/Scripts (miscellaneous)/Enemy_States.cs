@@ -8,6 +8,8 @@ public class Enemy_States : MonoBehaviour
 {
     public NavMeshAgent agent;
 
+    public Animator animator;
+
     public Transform player;
 
     public LayerMask whatIsGround, WhatIsPlayer;
@@ -81,6 +83,7 @@ public class Enemy_States : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+       // animator.SetBool("Walk", true);
     }
 
     private void AttackPlayer()
@@ -117,6 +120,7 @@ public class Enemy_States : MonoBehaviour
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            animator.SetBool("Attack", true);         
         }
     }
 
