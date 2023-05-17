@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
+
+
 public class Crafting_Manager : MonoBehaviour
 {
     private Crafting_Item currentItem;
@@ -12,6 +15,7 @@ public class Crafting_Manager : MonoBehaviour
 
     public List<Crafting_Item> itemList;  
     public string[] recipes;
+    public GameObject droppedItemPrefab;
     public Crafting_Item[] recipesResults;
     public Slot resultSlot;
 
@@ -72,13 +76,11 @@ public class Crafting_Manager : MonoBehaviour
             {
                 resultSlot.gameObject.SetActive(true);
                 resultSlot.GetComponent<Image>().sprite = recipesResults[i].GetComponent<Image>().sprite;
-                resultSlot.item = recipesResults[i];
-            
-            }
+                resultSlot.item = recipesResults[i];              
+            }       
         
-        
-        }
-    }
+        }        
+    }  
 
     public void OnClickSlot(Slot slot)
     {
