@@ -11,6 +11,7 @@ public class EnemyDamage : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Enemy_States>().TakeDamage(20);
+            other.GetComponent<Culson_States>().CulsonTakeDamage(20);
             audioSource.PlayOneShot(audioSource.clip, 1);
         }
     }

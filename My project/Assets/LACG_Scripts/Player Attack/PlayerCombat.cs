@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public int attackDamage = 400;
-    public GameObject Attacktrail;
+    public GameObject WrenchTrail;
     public float DelayTimer = 3;
 
     void Update()
@@ -18,18 +18,19 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Attack();
-           
-            //Timer
+            Wrench();
+
+
         }
-       
+      
     }
 
     private void Attack()
     {
         //Play Attack animation
 
-        animator.SetTrigger("Attack");  
-        Attacktrail.SetActive(true);
+        animator.SetTrigger("Attack");
+       
 
         //Dettect enemies in range
 
@@ -42,12 +43,18 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider enemy in hitenemies)
         {
             enemy.GetComponent<Enemy_States>().TakeDamage(attackDamage);
-
+            enemy.GetComponent<Culson_States>().CulsonTakeDamage(attackDamage);
         }
         
     }
+    private void Wrench()
+    {
+        WrenchTrail.SetActive(true);
 
-  
+        
+
+    }
+
 
     private void OnDrawGizmos()
     {

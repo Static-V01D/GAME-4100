@@ -10,7 +10,7 @@ public class Enemy_States : MonoBehaviour
 
     public Animator animator;
 
-    public Transform player;
+    public Transform player;  
 
     public LayerMask whatIsGround, WhatIsPlayer;
 
@@ -24,7 +24,7 @@ public class Enemy_States : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject bullet;
+   
 
     public Transform EnemyAttackPoint;   
     public LayerMask PlayerLayers;
@@ -38,6 +38,7 @@ public class Enemy_States : MonoBehaviour
     {
 
         player = GameObject.Find("PlayerArmature").transform;  // Tests are being made so it is called PlayerArmature to use that model//
+      
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -83,7 +84,7 @@ public class Enemy_States : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
-       // animator.SetBool("Walk", true);
+       
     }
 
     private void AttackPlayer()
@@ -93,7 +94,9 @@ public class Enemy_States : MonoBehaviour
 
         transform.LookAt(player);
 
-        if(!alreadyAttacked)
+     
+
+        if (!alreadyAttacked)
         {
             /*
             //attack code here///////////////////////////////////////////////////
@@ -116,6 +119,7 @@ public class Enemy_States : MonoBehaviour
             foreach (Collider enemy in hitenemies)
             {
                 enemy.GetComponent<Playerhealth>().TakeDamage(5);
+               
             }
 
             alreadyAttacked = true;

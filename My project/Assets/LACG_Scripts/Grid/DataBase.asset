@@ -16,16 +16,16 @@ MonoBehaviour:
   - <Name>k__BackingField: Pole
     <ID>k__BackingField: 0
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 2761519545439696980, guid: 7d728f00ddd656840929e927c979420e, type: 3}
+    <Prefab>k__BackingField: {fileID: 4801651159142208615, guid: 952a44da91e6be14890ca8c9d83f260a, type: 3}
   - <Name>k__BackingField: Turret
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 2, y: 2}
     <Prefab>k__BackingField: {fileID: 6097472597527444701, guid: 9295399d3636d8a41bd59729f6cc2f9b, type: 3}
-  - <Name>k__BackingField: Barricade
+  - <Name>k__BackingField: Mine
     <ID>k__BackingField: 2
     <Size>k__BackingField: {x: 2, y: 2}
-    <Prefab>k__BackingField: {fileID: 919132149155446097, guid: 116e7fbba8aa3b24d81bebbe8cace0fe, type: 3}
-  - <Name>k__BackingField: Battery
+    <Prefab>k__BackingField: {fileID: 2424562673372354885, guid: 15f5f4818041daf41ae01d63ffe6a43b, type: 3}
+  - <Name>k__BackingField: PushTrap
     <ID>k__BackingField: 3
-    <Size>k__BackingField: {x: 2, y: 2}
-    <Prefab>k__BackingField: {fileID: 919132149155446097, guid: ec70510c464ee0d4f9d0bdcf6256f392, type: 3}
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 319474110318483000, guid: c8f0e97d1634b6a4996a6225a372a650, type: 3}

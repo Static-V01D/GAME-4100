@@ -9,6 +9,9 @@ TagManager:
   - Agent
   - Damage Coin
   - Enemy
+  - SlowTrap
+  - SlowdownTrigger
+  - Battery
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - UI
   - Placement
   - Fade
-  - 
+  - Battery
   - 
   - 
   - 

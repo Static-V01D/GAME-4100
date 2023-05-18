@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7efcbc8ee4297247a2e7cb659abc275, type: 3}
   m_Name: Trap
   m_EditorClassIdentifier: 
-  displayName: Trap
+  displayName: Crossbow
   icon: {fileID: 21300000, guid: 873399569e7ccb341ac36158cc71cb15, type: 3}
