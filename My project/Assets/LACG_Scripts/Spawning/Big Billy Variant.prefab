@@ -166,7 +166,8 @@ PrefabInstance:
       propertyPath: whatIsGround.m_Bits
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1753602015571261200, guid: c2a88b78a66092d4aa933e1a99bf0835, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c2a88b78a66092d4aa933e1a99bf0835, type: 3}
 --- !u!1 &2205650645029899674 stripped
 GameObject:

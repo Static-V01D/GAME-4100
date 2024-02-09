@@ -13,7 +13,7 @@ public class Soda_Mine : MonoBehaviour
     float countdown;
     public float delay = 2.5f;
     bool hasExploded = false;
-    
+    public GameObject Explosion;
 
     void Start()
     {
@@ -48,7 +48,7 @@ public class Soda_Mine : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "Agent")
+        if (other.tag == "Enemy")
         {
             transform.localEulerAngles = new Vector3(90f, 0f, 0f);
             countdown -= Time.deltaTime;
@@ -62,6 +62,7 @@ public class Soda_Mine : MonoBehaviour
                     rb.AddExplosionForce(force, transform.position, radius);
                     Soda_mine = GameObject.Find("Soda_Mine");
                     Destroy(Soda_mine, 1);
+                 Explosion.SetActive(true);
                 }
             //}
             
